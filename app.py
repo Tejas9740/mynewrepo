@@ -1,14 +1,9 @@
-import os
-from flask import Flask
+from flask import Flask, render_template
+
 app = Flask(__name__)
 
-@app.route("/")
-def main():
-    return "Welcome!"
+@app.route('/')
+def home():
+    return render_template('home.html')
 
-@app.route('/how are you')
-def hello():
-    return 'I am good, how about you?'
-
-if __name__== "_main_":
-    app.run()
+app.run(debug=True, host='0.0.0.0')
